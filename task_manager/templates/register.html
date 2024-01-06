@@ -1,0 +1,29 @@
+<!-- templates/register.html -->
+{% extends 'layout.html' %}
+
+{% block title %}Register - Task Manager{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Register</h2>
+    <form method="post" action="{{ url_for('register') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.username.label }}
+            {{ form.username(class='form-control') }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class='form-control') }}
+        </div>
+        <div class="form-group">
+            {{ form.confirm_password.label }}
+            {{ form.confirm_password(class='form-control') }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class='btn btn-primary') }}
+        </div>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+</div>
+{% endblock %}
